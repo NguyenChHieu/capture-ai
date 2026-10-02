@@ -1,0 +1,125 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #e8e8e8;
+  background: #121212;
+}
+
+body {
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 100vh;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #1a1a1a;
+  border-right: 1px solid #333;
+}
+
+nav button {
+  text-align: left;
+}
+
+main {
+  padding: 1.5rem;
+  max-width: 720px;
+}
+
+.auth {
+  max-width: 360px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid #444;
+  padding: 0.5rem 0.75rem;
+  background: #222;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: #3d5afe;
+  border: none;
+}
+
+button.secondary {
+  background: #333;
+}
+
+button.danger {
+  background: #b71c1c;
+}
+
+button.active {
+  outline: 2px solid #3d5afe;
+}
+
+.error {
+  color: #ff8a80;
+}
+
+.muted {
+  color: #999;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.card {
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #333;
+  margin-right: 0.5rem;
+}
+
+.pill.READY {
+  background: #2e7d32;
+}
+
+.pill.FAILED {
+  background: #c62828;
+}
+
+.token {
+  display: block;
+  word-break: break-all;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #111;
+}
