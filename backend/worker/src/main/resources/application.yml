@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: capture-worker
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:capture}
+    username: ${DB_USER:capture}
+    password: ${DB_PASSWORD:capture}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+    consumer:
+      group-id: capture-worker
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+app:
+  temporal:
+    target: ${TEMPORAL_TARGET:127.0.0.1:7233}
+    namespace: ${TEMPORAL_NAMESPACE:default}
+    task-queue: capture-processing
+  kafka:
+    topic:
+      capture-ingested: capture.ingested
+      capture-processed: capture.processed
+      dlq: capture.ingested.dlq
+  ai:
+    openai-api-key: ${OPENAI_API_KEY:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
