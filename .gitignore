@@ -3,4 +3,8 @@ dist
 backend/tmp
 backend/.gradle
 backend/build
+backend/**/build
+frontend/node_modules
+frontend/dist
+packages/shared/node_modules
 **/.idea
