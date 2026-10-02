@@ -1,0 +1,16 @@
+plugins {
+    kotlin("jvm")
+    id("io.spring.dependency-management")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:3.3.5")
+    }
+}
+
+dependencies {
+    implementation(project(":domain"))
+    implementation("org.springframework.kafka:spring-kafka")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+}
